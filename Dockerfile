@@ -1,7 +1,7 @@
 FROM rust:1.91.1 as builder
 
 RUN apt update && apt upgrade -y
-RUN apt install -y protobuf-compiler libprotobuf-dev
+
 
 
 
@@ -16,8 +16,8 @@ RUN rustup component add rustfmt
  WORKDIR /usr/src/app
 
 # # Copy dependency files first for better caching
- COPY Cargo.toml Cargo.lock  build.rs ./
- COPY proto ./proto
+ COPY Cargo.toml Cargo.lock  ./
+
 # # Copy source code
  COPY src ./src
 
